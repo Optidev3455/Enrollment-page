@@ -36,10 +36,13 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+static/
+data/
 
 # Dependency directories
 node_modules/
 jspm_packages/
+package-lock.json
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -100,6 +103,7 @@ dist
 
 # vitepress build output
 **/.vitepress/dist
+.vite/
 
 # vitepress cache directory
 **/.vitepress/cache
@@ -137,3 +141,6 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# change demo.hash name to credentials.hash
+credentials.hash
