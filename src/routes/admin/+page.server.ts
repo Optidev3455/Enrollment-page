@@ -10,17 +10,17 @@ import {
 function getUserRole(username: string) {
   const firstLetter = username[0];
   if (firstLetter === 'S') {
-    return 'Student';
+    return '學生';
   }
   if (firstLetter === 'T') {
-    return 'Teacher';
+    return '老師';
   }
   if (firstLetter === 'A') {
-    return 'Admin';
+    return '管理員';
   }
   // default role
   // idk how someone will get to this point
-  return 'Unknown';
+  return '未知';
 }
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -31,10 +31,10 @@ export const load: PageServerLoad = async ({ locals }) => {
   const username = locals.user.username;
 
   // kick non admin users back to their page if they try to access this page
-  if (getUserRole(username) === 'Student') {
+  if (getUserRole(username) === '學生') {
     throw redirect(303, '/enrollment?permissionDenied=1');
   }
-  else if (getUserRole(username) === 'Teacher') {
+  else if (getUserRole(username) === '老師') {
     throw redirect(303, '/management?permissionDenied=1');
   }
 
@@ -57,7 +57,7 @@ export const actions: Actions = {
 
     // check if username and password are valid (not only spaces or somehow is not a string)
     if (typeof username !== 'string' || !username.trim() || typeof password !== 'string' || !password.trim()) {
-      return fail(400, { error: 'Username and password are required' });
+      return fail(400, { error: '需要用戶名稱和密碼' });
     }
 
     try {
@@ -68,7 +68,7 @@ export const actions: Actions = {
         success: true 
       };
     } catch (error: any) {
-      return fail(400, { error: error.message || 'Failed to add user' });
+      return fail(400, { error: error.message || '新增用戶失敗' });
     }
   },
 
@@ -78,7 +78,7 @@ export const actions: Actions = {
 
     // return error if no users are selected (i.e. selected username's length is 0)
     if (!usernames.length) {
-      return fail(400, { error: 'No users selected for deletion' });
+      return fail(400, { error: '未選擇要刪除的用戶' });
     }
 
     try {
@@ -92,7 +92,7 @@ export const actions: Actions = {
         success: true 
       };
     } catch (error: any) {
-      return fail(400, { error: error.message || 'Failed to delete users' });
+      return fail(400, { error: error.message || '刪除用戶失敗' });
     }
   }
 };

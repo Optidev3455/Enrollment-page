@@ -58,12 +58,12 @@
   }
 
   const events = [
-    { id: 'DISC', label: 'Discus' },
-    { id: 'TRAC', label: 'Track and Field' },
-    { id: 'HIGH', label: 'High Jump' },
-    { id: 'LONG', label: 'Long Jump' },
-    { id: 'RELA', label: 'Relay Race' },
-    { id: 'JAVE', label: 'Javelin Throwing' }
+    { id: 'DISC', label: '擲鐵餅' },
+    { id: 'TRAC', label: '田徑' },
+    { id: 'HIGH', label: '跳高' },
+    { id: 'LONG', label: '跳遠' },
+    { id: 'RELA', label: '接力賽' },
+    { id: 'JAVE', label: '標槍' }
   ];
 
   let dob = '';
@@ -107,7 +107,7 @@
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Successfully Logged in, {username}!</span>
+    <span>✅ 成功登入， {username}!</span>
     <button class="close-btn" on:click={() => loginSuccess = false}>
       &times;
     </button>
@@ -119,7 +119,7 @@
 class="glass-popup popup-f"
 transition:slide={{ duration: 300 }}
 >
-<span>❌ You don't have permission to access that page.</span>
+<span>❌ 你無權存取該頁面</span>
 <button class="close-btn" on:click={() => permissionDenied = false}>
   &times;
 </button>
@@ -131,7 +131,7 @@ transition:slide={{ duration: 300 }}
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Registration form has been submitted!</span>
+    <span>✅ 報名表已提交！</span>
     <button class="close-btn" on:click={() => submitSuccess = false}>
       &times;
     </button>
@@ -140,20 +140,20 @@ transition:slide={{ duration: 300 }}
 
 <div class="glass container">
   <div class="header">
-    <h1>Welcome to the Enrollment Portal, {username}!</h1>
+    <h1>歡迎來到運動會報名門戶， {username}!</h1>
     <LogoutButton />
   </div>
 
   <form method="POST">
     <!-- svelte-ignore a11y_label_has_associated_control -->
-    <label class="font-semibold mb-2 block">Select Your Birth Year</label>
+    <label class="font-semibold mb-2 block">選擇你的出生年份</label>
     <select
       name="dob"
       required
       bind:value={dob}
       class="block w-full rounded-md p-2 mb-4 text-white bg-gray-800"
     >
-      <option value="" disabled selected>Select birth year</option>
+      <option value="" disabled selected>選擇出生年份</option>
       {#each birthYears as year}
         <option value={year}>{year}</option>
       {/each}
@@ -161,7 +161,7 @@ transition:slide={{ duration: 300 }}
 
     <fieldset>
     <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label class="font-semibold mb-2">Select Event(s) you want to participate</label>
+      <label class="font-semibold mb-2">選擇你想參加的活動</label>
 
       {#each events as event}
         <div>
@@ -191,7 +191,7 @@ transition:slide={{ duration: 300 }}
             bind:checked={notInterested}
             on:change={noEnrollment}
           />
-          <span class="ml-2">I don't want to participate</span>
+          <span class="ml-2">我不想參加</span>
         </label>
       </div>
     </fieldset>
@@ -202,7 +202,7 @@ transition:slide={{ duration: 300 }}
       class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md"
       style="transition: .3s;"
     >
-      Submit Registration
+      提交報名表
     </button>
   </form>
 </div>

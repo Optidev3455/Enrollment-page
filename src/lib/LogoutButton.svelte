@@ -102,7 +102,7 @@
     class="glass-popup"
     transition:slide={{ duration: 300 }}
   >
-    <p>Are you sure you want to log out?</p>
+    <p>你確定要登出嗎？</p>
     <div class="btn-group">
       <button class="btn-yes" on:click={logout}>Yes</button>
       <button class="btn-no" on:click={() => show = false}>No</button>

@@ -12,7 +12,7 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
       const password: string = body.password;
 
       if (!username || !password) {
-        return new Response(JSON.stringify({ error: 'Username and password required' }), { status: 400 });
+        return new Response(JSON.stringify({ error: '需要用戶名稱和密碼' }), { status: 400 });
       }
 
       if (validateUser(username, password) !== false) {
@@ -29,9 +29,9 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
           sameSite: 'none', // prevent csrf attacks
           secure : true // https protocol
         });
-        return new Response(JSON.stringify({ message: 'Login successful' }), { status: 200 });
+        return new Response(JSON.stringify({ message: '成功登入' }), { status: 200 });
       } else {
-        return new Response(JSON.stringify({ error: 'Invalid Username or Password' }), { status: 401 });
+        return new Response(JSON.stringify({ error: '用戶名稱或密碼錯誤' }), { status: 401 });
       }
     }
 
@@ -40,13 +40,13 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
       if (token !== undefined) {
         cookies.delete('auth_token', { path: '/' });
       }
-      return new Response(JSON.stringify({ message: 'Logged out' }), { status: 200 });
+      return new Response(JSON.stringify({ message: '成功登出' }), { status: 200 });
     }
 
     // return error (only if someone somehow got to here)
-    return new Response(JSON.stringify({ error: 'Invalid action (How did you get here)' }), { status: 400 });
+    return new Response(JSON.stringify({ error: '無效操作 (How did you get here)' }), { status: 400 });
   } catch (e) {
-    const message = e instanceof Error ? e.message : 'Unknown error';
+    const message = e instanceof Error ? e.message : '未知錯誤';
     return new Response(JSON.stringify({ error: message }), { status: 500 }); // internal server error (i doubt this will ever happen)
   }
 };

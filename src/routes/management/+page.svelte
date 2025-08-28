@@ -120,12 +120,12 @@
   }
 
   th.sid, td.sid {
-    width: 1em;
-    white-space: nowrap;
+    width: 7em;
+    text-align: center;
   }
 
   th.status, td.status {
-    width: .8em;
+    width: 7em;
     text-align: center;
   }
 
@@ -159,7 +159,7 @@
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Successfully Logged in, {username}!</span>
+    <span>✅ 成功登入， {username}!</span>
     <button class="close-btn"  on:click={() => loginSuccess = false}>
       &times;
     </button>
@@ -171,7 +171,7 @@
     class="glass-popup popup-f"
     transition:slide={{ duration: 300 }}
   >
-    <span>❌ You don't have permission to access that page.</span>
+    <span>❌ 你無權存取該頁面</span>
     <button class="close-btn" on:click={() => permissionDenied = false}>
       &times;
     </button>
@@ -180,18 +180,18 @@
 
 <div class="glass container">
   <div class="header">
-    <h1>Welcome to the Management Portal, {username}!</h1>
+    <h1>歡迎來到管理門戶， {username}!</h1>
     <LogoutButton />
   </div>
 
-  <h2>Student Enrollment Report</h2>
+  <h2>學生運動會報名報告</h2>
 
   <table>
     <thead>
       <tr>
-        <th class="sid">Student ID</th>
-        <th class="status">Status</th>
-        <th class="events">Enrolled Events</th>
+        <th class="sid">學生 ID</th>
+        <th class="status">報名情況</th>
+        <th class="events">已報名的活動</th>
       </tr>
     </thead>
     <tbody>
@@ -212,6 +212,6 @@
   </table>
   <br>
   <button class="download-btn" on:click={downloadCSV}>
-    Download ENROLMENT.csv
+    下載 ENROLMENT.csv
   </button>
 </div>

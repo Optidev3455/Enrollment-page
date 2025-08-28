@@ -168,7 +168,7 @@
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Successfully Logged in, {username}!</span>
+    <span>✅ 成功登入， {username}!</span>
     <button class="close-btn" on:click={() => loginSuccess = false}>
       &times;
     </button>
@@ -180,7 +180,7 @@
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Successfully Added New User! <br> Please Reload the page</span>
+    <span>✅ 成功新增用戶！ <br> 請重新載入此頁面</span>
     <button class="close-btn" on:click={() => addUserSuccess = false}>
       &times;
     </button>
@@ -192,7 +192,7 @@
     class="glass-popup popup-s"
     transition:slide={{ duration: 300 }}
   >
-    <span>✅ Successfully Removed User! <br> Please Reload the page</span>
+    <span>✅ 成功刪除用戶！ <br> 請重新載入此頁面</span>
     <button class="close-btn" on:click={() => addUserSuccess = false}>
       &times;
     </button>
@@ -201,21 +201,21 @@
 
 <div class="glass container">
   <div class="header">
-    <h1>Welcome to the Admin Portal, {username}!</h1>
+    <h1>歡迎來到管理員門戶， {username}!</h1>
     <LogoutButton />
   </div>
 
   <div style="margin-bottom: 1rem;">
-    <button class="add-user-btn" on:click={() => (showAddUserPopup = true)}>Add User</button>
-    <button class="delete-user-btn" disabled={selectedUsers.size === 0} on:click={() => showDeleteConfirm = true}>Delete Selected User(s)</button>
+    <button class="add-user-btn" on:click={() => (showAddUserPopup = true)}>新增用戶</button>
+    <button class="delete-user-btn" disabled={selectedUsers.size === 0} on:click={() => showDeleteConfirm = true}>刪除已選的用戶</button>
   </div>
 
   <table>
     <thead>
       <tr>
-        <th>Select</th>
-        <th>Username</th>
-        <th>Role</th>
+        <th>選擇</th>
+        <th>用戶名稱</th>
+        <th>角色</th>
       </tr>
     </thead>
 <tbody>
@@ -245,12 +245,11 @@
     class="glass-popup"
     transition:slide={{ duration: 200 }}
   >
-    <h2 class="sr-only">Add New User</h2>
     <form method="POST" action="?/addUser">
-      Add New User
+      新增用戶
       <br>
       <label class="block mb-4">
-        <span class="block text-white mb-1">Username:</span>
+        <span class="block text-white mb-1">用戶名稱:</span>
         <input
           type="text"
           name="addUsername"
@@ -259,7 +258,7 @@
         />
       </label>
       <label class="block mb-4">
-        <span class="block text-white mb-1">Password:</span>
+        <span class="block text-white mb-1">密碼:</span>
         <input
           type="password"
           name="addPassword"
@@ -272,14 +271,14 @@
           type="submit" 
           on:click={() => (showAddUserPopup = false, addUserSuccess = true)}
           class="btn-yes px-4 py-2 rounded font-semibold">
-          Add
+          新增
         </button>
         <button
           type="button"
           on:click={() => showAddUserPopup = false}
           class="btn-no px-4 py-2 rounded font-semibold"
         >
-          Cancel
+          取消
         </button>
       </div>
     </form>
@@ -292,7 +291,7 @@
     transition:slide={{ duration: 200 }}
     style="display: inline;"
   >
-    <p class="mb-4">Are you sure you want to delete selected user(s)?</p>
+    <p class="mb-4">您確定要刪除選定的用戶嗎?</p>
     {#if deleteError}
       <p class="text-red-600 mb-4">{deleteError}</p>
     {/if}
