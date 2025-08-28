@@ -121,4 +121,3 @@ Admins can add and remove users.
 ## Notes
 
 - If you've encountered any problems, please check your Node.js and npm versions, reinstall all packages and remove `.svelte-kit` and `.vite` folders
-- Unit tests and polishing will be rolled out later
