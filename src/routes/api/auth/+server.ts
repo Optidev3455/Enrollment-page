@@ -1,4 +1,4 @@
-import { validateUser, getAllUsernames } from '$lib/credentials.server';
+import { validateUser } from '$lib/credentials.server';
 import type { RequestHandler } from '@sveltejs/kit';
 import { createSessionToken } from '$lib/auth';
 

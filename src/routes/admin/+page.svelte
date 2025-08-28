@@ -33,7 +33,7 @@
     // removing ?loginSuccesss=1 and ?permissionDenied=1 to avoid showing popup on page refresh
     const url = new URLSearchParams(location.search);
   
-    if (url.get('loginSuccesss')) {
+    if (url.get('loginSuccess')) {
       loginSuccess = true;
       history.replaceState(null, '', location.pathname);
     }
@@ -254,7 +254,6 @@
         <input
           type="text"
           name="addUsername"
-          required
           bind:value={addUsername}
           class="w-full rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
@@ -264,7 +263,6 @@
         <input
           type="password"
           name="addPassword"
-          required
           bind:value={addPassword}
           class="w-full rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
